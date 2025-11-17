@@ -26,7 +26,7 @@ Un compte admin est disponible pour tester la gestion des matchs :
 - [Prisma](https://www.prisma.io/) pour la gestion de la base de données  
 - [Axios](https://axios-http.com/) pour les appels API
 
-- ## Difficultés rencontrées
+## Difficultés rencontrées
 - **Problème de VM Digital Ocean** avant la remise du projet, ce qui a nécessité de recommencer une partie du travail.  
 - Sujet **assez restreint au niveau e-sport**, ce qui limitait les types de fonctionnalités à implémenter.  
 - **Gestion des JWT et middleware** pour sécuriser les routes a demandé de l’ajustement pour permettre un accès correct aux utilisateurs et admins.  
