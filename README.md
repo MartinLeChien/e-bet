@@ -1,75 +1,44 @@
-# Nuxt Minimal Starter
+# Projet e-Bet
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+**Projet pour Andy Cinquin** – application de paris en ligne sur des équipes e-sport.  
 
-## Setup
+## Sujet
+Le projet consiste à permettre à des utilisateurs de parier sur des matchs e-sportifs, suivre leurs paris en cours, voir leurs gains et pertes, et gérer les matchs pour un administrateur.  
 
-Make sure to install dependencies:
+## Fonctionnalités réalisées
+- Page de connexion / inscription pour les utilisateurs.  
+- Dashboard utilisateur affichant les paris en cours et les résultats des paris terminés.  
+- Page de profil avec informations utilisateur et gains totaux.  
+- Page des matchs disponibles pour parier sur une équipe.  
+- Gestion des paris (création, suivi, calcul des gains/pertes).  
+- Middleware pour sécuriser les routes selon le rôle (admin ou utilisateur classique).  
 
-```bash
-# npm
-npm install
+## Compte administrateur
+Un compte admin est disponible pour tester la gestion des matchs :  
 
-# pnpm
-pnpm install
+- **Email** : admintest@gmail.com  
+- **Mot de passe** : admintest  
 
-# yarn
-yarn install
+## Technologies utilisées
+- [Nuxt 3 / Vue 3](https://nuxt.com/)  
+- [Tailwind CSS](https://tailwindcss.com/) pour le design  
+- [Pinia](https://pinia.vuejs.org/) pour le state management  
+- [Prisma](https://www.prisma.io/) pour la gestion de la base de données  
+- [Axios](https://axios-http.com/) pour les appels API
 
-# bun
-bun install
-```
+- ## Difficultés rencontrées
+- **Problème de VM Digital Ocean** avant la remise du projet, ce qui a nécessité de recommencer une partie du travail.  
+- Sujet **assez restreint au niveau e-sport**, ce qui limitait les types de fonctionnalités à implémenter.  
+- **Gestion des JWT et middleware** pour sécuriser les routes a demandé de l’ajustement pour permettre un accès correct aux utilisateurs et admins.  
+- Adaptation de **Prisma** pour gérer les paris et calculer les gains/pertes automatiquement.  
+- Problèmes ponctuels avec le **state management** et la synchronisation des stores entre les pages.  
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Axes d’amélioration
+- **TailwindCSS** : certains styles ne s’appliquaient pas correctement, nécessitant une optimisation du design et de la structure des composants.  
+- **WebSocket / temps réel** : permettre la mise à jour instantanée des cotes, des paris et des résultats sans recharger la page.  
+- **Meilleure organisation des stores** avec Pinia pour centraliser les données et réduire les appels API.  
+- **Protection avancée des pages** pour empêcher les utilisateurs non connectés ou non admin d’accéder à certaines routes.  
+- **Amélioration du design** pour rendre l’interface plus attractive et ergonomique.  
+- **Gestion de l’argent plus complète** : ajout d’un solde virtuel, vérification des fonds avant de parier, historique détaillé des gains et pertes.  
+- **Optimisation backend** : endpoints plus robustes, meilleure gestion des erreurs et validations.  
+- **Ajout de statistiques et graphiques** pour que les utilisateurs puissent suivre leurs performances.  
