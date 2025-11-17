@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String
+  username     String
+  role         Role     @default(USER)
+  bets         Bet[]
+  totalBets Int      @default(0) 
+  winnings  Float    @default(0) 
+  createdAt    DateTime @default(now())
+}
+
+model Team {
+  id      Int     @id @default(autoincrement())
+  name    String  @unique
+  logoUrl String?
+  // relations
+  homeMatches Match[] @relation("teamA")
+  awayMatches Match[] @relation("teamB")
+}
+
+model Match {
+  id           Int      @id @default(autoincrement())
+  teamAId      Int
+  teamBId      Int
+  startTime    DateTime
+  oddsTeamA    Float
+  oddsTeamB    Float
+  winnerTeamId Int?
+  status       MatchStatus @default(OPEN)
+  teamA        Team     @relation("teamA", fields: [teamAId], references: [id])
+  teamB        Team     @relation("teamB", fields: [teamBId], references: [id])
+  bets         Bet[]
+}
+
+model Bet {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  match     Match    @relation(fields: [matchId], references: [id])
+  matchId   Int
+  teamId    Int      // id de l’équipe pariée
+  amount    Float
+  status    String   @default("pending") // "pending", "won", "lost"
+  payout    Float? 
+  potentialGain Float?
+  createdAt DateTime @default(now())
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum MatchStatus {
+  OPEN
+  CLOSED
+  FINISHED
+}
