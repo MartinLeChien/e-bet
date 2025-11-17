@@ -3,7 +3,9 @@
 **Projet pour Andy Cinquin** – application de paris en ligne sur des équipes e-sport.  
 
 ## Sujet
-Le projet consiste à permettre à des utilisateurs de parier sur des matchs e-sportifs, suivre leurs paris en cours, voir leurs gains et pertes, et gérer les matchs pour un administrateur.  
+Le projet consiste à permettre à des utilisateurs de parier sur des matchs e-sportifs, suivre leurs paris en cours, voir leurs gains et pertes, et gérer les matchs pour un administrateur. 
+
+**L’application est disponible en ligne : [http://165.227.229.64:3000/](http://165.227.229.64:3000/)**
 
 ## Fonctionnalités réalisées
 - Page de connexion / inscription pour les utilisateurs.  
